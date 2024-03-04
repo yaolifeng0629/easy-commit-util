@@ -1,25 +1,31 @@
-# Simple Push
+# easy-commit
+<span> English | <a href= "./README.zh.md"> Chinese </a></span>
 
--   Simple Push 是一个使用 Node.js 编写的命令行工具，它可以简化和自动化你的 git 提交过程。
+-   easy-commit is a command-line tool written in Node.js that simplifies and automates your git submission process.
 
-## 功能
+## Function
 
--   自动检测当前目录是否是一个 git 仓库
--   如果是 git 仓库，会提示你输入提交消息
--   自动执行`git add .`，`git commit -m "<message>"`和`git push`命令
+-   Automatically detect if the current directory is a git repository
+-   If it is a git warehouse, you will be prompted to enter a submission message
+-   Automatically execute `git add.`、`Git commit - m "<message>" ` and `git push` commands
 
-## 使用方法
+## 🚀 Usage
 
-1. 克隆或下载此仓库到本地
-2. 在命令行中导航到此仓库的目录
-3. 运行`node index.js`
-4. 当提示输入提交消息时，输入你的提交消息，然后按回车键
+1. Clone or download this repository locally
+2. Navigation to the directory of this warehouse on the command line
+3. pnpm start
+4. When prompted to enter a submission message, enter your submission message and then press Enter
 
-## 注意事项
+## ⚠️ Precautions
 
--   确保你的机器上已经安装了 Node.js 和 git
--   确保你已经在 git 仓库中配置了正确的远程仓库
+-   Ensure that Node.js and git are installed on your machine
+-   Ensure that you have configured the correct remote warehouse in the git repository
 
-## 许可证
+## 🙌 contribution
 
--   此项目遵循 MIT 许可证。有关详细信息，请参阅[LICENSE](LICENSE)文件。
+-   We welcome all contributions and suggestions. If you want to contribute to Delete Repository, you can:
+    -   submit bug reports or recommendations
+    -   submit code improvements or new features
+    -   improve documentation
+
+-   thanks to all those who have contributed to Delete Repository! 🎉

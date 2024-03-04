@@ -2,6 +2,7 @@ import { promisify } from 'util';
 import { exec as execCb, execSync } from 'child_process';
 import readlineCb from 'readline';
 import chalk from 'chalk';
+import boxen from 'boxen';
 
 const exec = promisify(execCb);
 const readline = readlineCb.createInterface({
@@ -36,8 +37,8 @@ function gitCommitAndPush(message) {
 }
 
 async function main() {
-    // console.log(chalk.blue(getTableData()));
-    // return;
+    displayGuide();
+
     const directory = process.cwd();
     process.chdir(directory);
 
@@ -51,31 +52,26 @@ async function main() {
     }
 }
 
-async function getTableData() {
-    var table = new Table({
-        head: ['type', 'Description'],
-        colWidths: [150, 400],
-    });
-
-    table.push(
-        ['resolve conflict', '解决冲突'],
-        ['merge branch', '合并分支'],
-        ['feat', '添加的新功能说明'],
-        ['fix', '修复的 bug 说明'],
-        ['initial project', '初始化项目'],
-        ['style', '修改的样式范围'],
-        ['perf', '优化的范围'],
-        ['release', '发布新版本'],
-        ['docs', '文档修改'],
-        ['refactor', '代码重构'],
-        ['revert', '还原之前的版本'],
-        ['dependencies', '依赖项修改'],
-        ['dev dependencies', '开发依赖修改'],
-        ['review', '复习，回顾'],
-        ['strengthen', '加强，巩固']
+function displayGuide() {
+    const guideData = boxen(
+        `\n 1. resolve conflict：解决冲突 \n 2. merge branch：合并分支 \n 3. feat： 添加的新功能说明 \n 4. fix：修复的 bug 说明 \n 5. initial project：初始化项目 \n 6. style： 修改的样式范围 \n 7. perf： 优化的范围 \n 8. release： 发布新版本 \n 9. docs： 文档修改 \n 10. refactor： 代码重构 \n 11. revert： 还原之前的版本 \n 12. dependencies： 依赖项修改 \n 13. dev dependencies： 开发依赖修改 \n 14. review：复习，回顾 \n 15. strengthen： 加强，巩固 \n",`,
+        {
+            width: 60,
+            height: 18,
+            padding: 10,
+            title: 'easy-commit 🚀 ',
+            titleAlignment: 'center',
+            borderColor: 'cyanBright',
+            margin: {
+                top: 1,
+                right: 0,
+                bottom: 1,
+                left: 0,
+            },
+        }
     );
 
-    return table.toString();
+    console.log(chalk.yellow(guideData));
 }
 
 main();

@@ -1,19 +1,45 @@
 {
-    "name": "simple_push",
+    "name": "easy-commit",
     "version": "1.0.0",
-    "description": "",
+    "description": "easy-commit is a command-line tool written in Node.js that simplifies and automates your git submission process.",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
+        "build": "babel ./index.js --out-dir dist",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "keywords": [],
-    "type": "module",
-    "author": "",
+    "keywords": [
+        "github",
+        "repositories",
+        "code",
+        "push",
+        "commit",
+        "gitee"
+    ],
+    "author": "Ims",
     "license": "ISC",
+    "type": "module",
     "dependencies": {
+        "boxen": "^7.1.1",
         "chalk": "^5.3.0",
         "cli-table3": "^0.6.3",
         "util": "^0.12.5"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.23.9",
+        "@babel/core": "^7.24.0",
+        "@babel/preset-env": "^7.24.0",
+        "eslint": "^8.19.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yaolifeng0629/simple_push"
+    },
+    "bugs": {
+        "url": "https://github.com/yaolifeng0629/simple_push/issues"
+    },
+    "homepage": "https://github.com/yaolifeng0629/simple_push#readme",
+    "engines": {
+        "node": ">=14.0.0"
     }
 }
