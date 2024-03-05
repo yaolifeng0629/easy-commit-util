@@ -43,7 +43,7 @@ async function main() {
     process.chdir(directory);
 
     if (await isGitRepository()) {
-        readline.question('请输入提交消息: ', message => {
+        readline.question('Please enter a submission message: ', message => {
             gitCommitAndPush(message);
             readline.close();
         });
