@@ -1,11 +1,11 @@
 {
     "name": "easy-commit",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "easy-commit is a command-line tool written in Node.js that simplifies and automates your git submission process.",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
-        "build": "babel ./index.js --out-dir dist",
+        "build": "babel ./index.js --out-dir package",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
