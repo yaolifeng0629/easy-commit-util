@@ -59,7 +59,7 @@ function displayGuide() {
             width: 60,
             height: 18,
             padding: 10,
-            title: 'easy-commit 🚀 ',
+            title: 'easy-commit-util 🚀 ',
             titleAlignment: 'center',
             borderColor: 'cyanBright',
             margin: {

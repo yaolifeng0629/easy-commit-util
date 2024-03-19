@@ -1,6 +1,6 @@
-# easy-commit
+# easy-commit-util
 
--   easy-commit 是一个使用 Node.js 编写的命令行工具，它可以简化和自动化你的 git 提交过程。
+-   easy-commit-util 是一个使用 Node.js 编写的命令行工具，它可以简化和自动化你的 git 提交过程。
 
 ## 功能
 
@@ -22,10 +22,10 @@
 
 ## 🙌 贡献
 
--   我们欢迎所有的贡献和建议。如果你想为 easy-commit 做出贡献，你可以：
+-   我们欢迎所有的贡献和建议。如果你想为 easy-commit-util 做出贡献，你可以：
 
     -   提交 bug 报告或建议
     -   提交代码改进或新功能
     -   改进文档
 
--   感谢所有已经为 easy-commit 做出贡献的人！🎉
+-   感谢所有已经为 easy-commit-util 做出贡献的人！🎉

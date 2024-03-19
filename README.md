@@ -1,7 +1,7 @@
-# easy-commit
+# easy-commit-util
 <span> English | <a href= "./README.zh.md"> Chinese </a></span>
 
--   easy-commit is a command-line tool written in Node.js that simplifies and automates your git submission process.
+-   easy-commit-util is a command-line tool written in Node.js that simplifies and automates your git submission process.
 
 ## Function
 
