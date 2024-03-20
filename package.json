@@ -1,7 +1,8 @@
 {
     "name": "easy-commit-util",
-    "version": "1.0.4",
+    "version": "1.0.8",
     "description": "easy-commit-util is a command-line tool written in Node.js that simplifies and automates your git submission process.",
+    "bin": "./index.js",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",

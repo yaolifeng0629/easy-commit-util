@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { promisify } from 'util';
 import { exec as execCb, execSync } from 'child_process';
 import readlineCb from 'readline';

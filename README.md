@@ -10,11 +10,22 @@
 -   Automatically execute `git add.`、`Git commit - m "<message>" ` and `git push` commands
 
 ## 🚀 Usage
+1.  global installation
+```bash
+pnpm install -g easy-commit-util
 
-1. Clone or download this repository locally
-2. Navigation to the directory of this warehouse on the command line
-3. pnpm start
-4. When prompted to enter a submission message, enter your submission message and then press Enter
+npm install -g easy-commit-util
+```
+2. open a terminal
+```bash
+easy-commit-util
+
+# Enter commit information
+# Enter
+
+# Tips:
+# Command line input easy Press Tab key to complete automatically, no need to manually type the name
+```
 
 ## ⚠️ Precautions
 
