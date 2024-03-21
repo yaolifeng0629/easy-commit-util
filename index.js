@@ -18,8 +18,6 @@ async function isGitRepository() {
         if (stderr) {
             console.error(`stderr: ${stderr}`);
             return false;
-        } else {
-            process.exit(1);
         }
         return stdout.trim() === 'true';
     } catch (error) {
