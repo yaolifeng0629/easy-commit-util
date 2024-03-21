@@ -50,7 +50,8 @@ async function main() {
             readline.close();
         });
     } else {
-        console.log('The current directory is not a git repository');
+        console.log(chalk.red('The current directory is not a git repository'));
+        process.exit();
     }
 }
 
