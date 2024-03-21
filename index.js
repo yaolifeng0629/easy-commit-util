@@ -45,6 +45,12 @@ async function main() {
     process.chdir(directory);
 
     if (await isGitRepository()) {
+        const isChange = isModify();
+        if (!isChange) {
+            console.log(chalk.yellow('There are no modifications to the current storage card'));
+            process.exit();
+        }
+
         readline.question('Please enter a submission message: ', message => {
             gitCommitAndPush(message);
             readline.close();
@@ -75,6 +81,15 @@ function displayGuide() {
     );
 
     console.log(chalk.yellow(guideData));
+}
+
+function isModify() {
+    const result = execSync('git status --porcelain').toString();
+    const files = result
+        .split('\n')
+        .map(line => line.trim().split(' ')[1])
+        .filter(file => file);
+    return files.length > 0;
 }
 
 main();
