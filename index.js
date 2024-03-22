@@ -30,7 +30,7 @@ function gitCommitAndPush(message) {
     try {
         execSync('git add .', { stdio: 'inherit' });
         execSync(`git commit -m "${message}"`, { stdio: 'inherit' });
-        execSync('git push', { stdio: 'inherit' });
+        execSync(`git push origin ${getCurrentBranch()}`, { stdio: 'inherit' });
 
         console.log('\x1b[32m', 'Submit Success.');
     } catch (error) {
@@ -92,4 +92,8 @@ function isModify() {
     return files.length > 0;
 }
 
+function getCurrentBranch() {
+    const result = execSync('git branch --show-current').toString();
+    return result.trim();
+}
 main();

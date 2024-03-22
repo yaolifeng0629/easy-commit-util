@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 "use strict";
 
 var _util = require("util");
@@ -60,7 +61,7 @@ function gitCommitAndPush(message) {
     (0, _child_process.execSync)("git commit -m \"".concat(message, "\""), {
       stdio: 'inherit'
     });
-    (0, _child_process.execSync)('git push', {
+    (0, _child_process.execSync)("git push origin ".concat(getCurrentBranch()), {
       stdio: 'inherit'
     });
     console.log('\x1b[32m', 'Submit Success.');
@@ -73,7 +74,7 @@ function main() {
 }
 function _main() {
   _main = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-    var directory;
+    var directory, isChange;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
@@ -84,18 +85,24 @@ function _main() {
           return isGitRepository();
         case 5:
           if (!_context2.sent) {
-            _context2.next = 9;
+            _context2.next = 11;
             break;
+          }
+          isChange = isModify();
+          if (!isChange) {
+            console.log(_chalk["default"].yellow('There are no modifications to the current storage card'));
+            process.exit();
           }
           readline.question('Please enter a submission message: ', function (message) {
             gitCommitAndPush(message);
             readline.close();
           });
-          _context2.next = 10;
+          _context2.next = 13;
           break;
-        case 9:
-          console.log('The current directory is not a git repository');
-        case 10:
+        case 11:
+          console.log(_chalk["default"].red('The current directory is not a git repository'));
+          process.exit();
+        case 13:
         case "end":
           return _context2.stop();
       }
@@ -119,5 +126,18 @@ function displayGuide() {
     }
   });
   console.log(_chalk["default"].yellow(guideData));
+}
+function isModify() {
+  var result = (0, _child_process.execSync)('git status --porcelain').toString();
+  var files = result.split('\n').map(function (line) {
+    return line.trim().split(' ')[1];
+  }).filter(function (file) {
+    return file;
+  });
+  return files.length > 0;
+}
+function getCurrentBranch() {
+  var result = (0, _child_process.execSync)('git branch --show-current').toString();
+  return result.trim();
 }
 main();
