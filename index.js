@@ -84,12 +84,17 @@ function displayGuide() {
 }
 
 function isModify() {
-    const result = execSync('git status --porcelain').toString();
-    const files = result
+    // Check temporary and staging area modifications
+    const resultUnstaged = execSync('git diff --name-only').toString();
+    const resultStaged = execSync('git diff --cached --name-only').toString();
+
+    // List of modified files merging temporary and staging areas
+    const filesModified = (resultUnstaged + '\n' + resultStaged)
         .split('\n')
-        .map(line => line.trim().split(' ')[1])
+        .map(line => line.trim())
         .filter(file => file);
-    return files.length > 0;
+
+    return filesModified.length > 0;
 }
 
 function getCurrentBranch() {
