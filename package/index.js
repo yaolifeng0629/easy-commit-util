@@ -128,13 +128,19 @@ function displayGuide() {
   console.log(_chalk["default"].yellow(guideData));
 }
 function isModify() {
-  var result = (0, _child_process.execSync)('git status --porcelain').toString();
-  var files = result.split('\n').map(function (line) {
-    return line.trim().split(' ')[1];
+  var anyFixed = (0, _child_process.execSync)('git status --porcelain').toString();
+
+  // Check temporary and staging area modifications
+  var resultUnstaged = (0, _child_process.execSync)('git diff --name-only').toString();
+  var resultStaged = (0, _child_process.execSync)('git diff --cached --name-only').toString();
+
+  // List of modified files merging temporary and staging areas
+  var filesModified = (anyFixed + '\n' + resultUnstaged + '\n' + resultStaged).split('\n').map(function (line) {
+    return line.trim();
   }).filter(function (file) {
     return file;
   });
-  return files.length > 0;
+  return filesModified.length > 0;
 }
 function getCurrentBranch() {
   var result = (0, _child_process.execSync)('git branch --show-current').toString();
