@@ -41,6 +41,9 @@ function gitCommitAndPush(message) {
 async function main() {
     displayGuide();
 
+    console.log(chalk.gray('Canonical format Reference: https://www.conventionalcommits.org/en/v1.0.0/#specification'));
+    console.log(chalk.gray(''));
+
     const directory = process.cwd();
     process.chdir(directory);
 
@@ -63,10 +66,10 @@ async function main() {
 
 function displayGuide() {
     const guideData = boxen(
-        `\n 1. resolve conflict：解决冲突 \n 2. merge branch：合并分支 \n 3. feat： 添加的新功能说明 \n 4. fix：修复的 bug 说明 \n 5. initial project：初始化项目 \n 6. style： 修改的样式范围 \n 7. perf： 优化的范围 \n 8. release： 发布新版本 \n 9. docs： 文档修改 \n 10. refactor： 代码重构 \n 11. revert： 还原之前的版本 \n 12. dependencies： 依赖项修改 \n 13. dev dependencies： 开发依赖修改 \n 14. review：复习，回顾 \n 15. strengthen： 加强，巩固 \n",`,
+        `\n 1. feat：新功能 \n 2. fix：修复 bug \n 3. docs：文档修改 \n 4. style：样式修改(ui 校验) \n 5. ci：自动化流程配置或脚本修改 \n 6. revert：回退某个 commit 提交 \n 7. build：构建系统或外部依赖项的更改 \n 8. perf：优化相关，比如提升性能、体验 \n 9. chore：其他修改, 比如构建流程、依赖管理 \n 10. refactor：重构代码(无功能、无 bug 修复) \n 11. test：增加测试，包括单元测试、集成测试等`,
         {
             width: 60,
-            height: 18,
+            height: 15,
             padding: 10,
             title: 'easy-commit-util 🚀 ',
             titleAlignment: 'center',
