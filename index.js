@@ -30,7 +30,11 @@ function gitCommitAndPush(message) {
     try {
         execSync('git add .', { stdio: 'inherit' });
         execSync(`git commit -m "${message}"`, { stdio: 'inherit' });
-        execSync(`git push origin ${getCurrentBranch()}`, { stdio: 'inherit' });
+        if (validateCommitMessage(message)) {
+            execSync(`git push origin ${getCurrentBranch()}`, { stdio: 'inherit' });
+        } else {
+            console.log('Please Input correct message format.')
+        }
 
         console.log('\x1b[32m', 'Submit Success.');
     } catch (error) {
@@ -106,4 +110,25 @@ function getCurrentBranch() {
     const result = execSync('git branch --show-current').toString();
     return result.trim();
 }
+
+function validateCommitMessage(message) {
+    const commitRE =
+        /^(revert: )?(feat|fix|docs|dx|style|refactor|perf|test|workflow|build|ci|chore|types|wip|release)(\(.+\))?: .{1,50}/;
+
+    if (!commitRE.test(message)) {
+        console.log();
+        console.error(
+            `  ${chalk.white(chalk.bgRed(' ERROR '))} ${chalk.red(`invalid commit message format.`)}\n\n` +
+                chalk.red(`  Proper commit message format is required for automated changelog generation. Examples:\n\n`) +
+                `    ${chalk.green(`feat(scope): add 'comments' option`)}\n` +
+                `    ${chalk.green(`fix(scope): handle events on blur (close #28)`)}\n\n` +
+                chalk.red(
+                    `We refer to the vue3 scheme.\n` +
+                        `See https://github.com/vuejs/core/blob/main/.github/commit-convention.md for more details.\n`
+                )
+        );
+        process.exit(1);
+    }
+}
+
 main();
