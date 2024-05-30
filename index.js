@@ -9,7 +9,7 @@ import boxen from 'boxen';
 const exec = promisify(execCb);
 const readline = readlineCb.createInterface({
     input: process.stdin,
-    output: process.stdout,
+    output: process.stdout
 });
 
 async function isGitRepository() {
@@ -28,15 +28,12 @@ async function isGitRepository() {
 
 function gitCommitAndPush(message) {
     try {
-        execSync('git add .', { stdio: 'inherit' });
-        execSync(`git commit -m "${message}"`, { stdio: 'inherit' });
         if (validateCommitMessage(message)) {
+            execSync('git add .', { stdio: 'inherit' });
+            execSync(`git commit -m "${message}"`, { stdio: 'inherit' });
             execSync(`git push origin ${getCurrentBranch()}`, { stdio: 'inherit' });
-        } else {
-            console.log('Please Input correct message format.')
+            console.log('\x1b[32m', 'Submit Success.');
         }
-
-        console.log('\x1b[32m', 'Submit Success.');
     } catch (error) {
         console.error(`Commit error: ${error}`);
     }
@@ -70,7 +67,8 @@ async function main() {
 
 function displayGuide() {
     const guideData = boxen(
-        `\n 1. feat：新功能 \n 2. fix：修复 bug \n 3. docs：文档修改 \n 4. style：样式修改(ui 校验) \n 5. ci：自动化流程配置或脚本修改 \n 6. revert：回退某个 commit 提交 \n 7. build：构建系统或外部依赖项的更改 \n 8. perf：优化相关，比如提升性能、体验 \n 9. chore：其他修改, 比如构建流程、依赖管理 \n 10. refactor：重构代码(无功能、无 bug 修复) \n 11. test：增加测试，包括单元测试、集成测试等`,
+        `\n 1.  feat：新功能 \n 2.  fix：修复 bug \n 3.  docs：文档修改 \n 4.  release：版本发布记录 \n 5.  style：样式修改(ui 校验) \n 6.  workflow：工作流相关修改 \n 7.  types：项目数据类型的修改 \n 8.  ci：自动化流程配置或脚本修改 \n 9.  revert：回退某个 commit 提交 \n 11. wip：备份当前进度（表示还未完成） \n 10. build：构建系统或外部依赖项的更改 \n 12. perf：优化相关，比如提升性能、体验 \n 13. dx： 开发体验相关修改，例如构建流程 \n 14. chore：其他修改, 比如构建流程、依赖管理 \n 15. refactor：重构代码(无功能、无 bug 修复) \n 16. test：增加测试，包括单元测试、集成测试等
+        `,
         {
             width: 60,
             height: 15,
@@ -82,8 +80,8 @@ function displayGuide() {
                 top: 1,
                 right: 0,
                 bottom: 1,
-                left: 0,
-            },
+                left: 0
+            }
         }
     );
 
@@ -118,16 +116,20 @@ function validateCommitMessage(message) {
     if (!commitRE.test(message)) {
         console.log();
         console.error(
-            `  ${chalk.white(chalk.bgRed(' ERROR '))} ${chalk.red(`invalid commit message format.`)}\n\n` +
-                chalk.red(`  Proper commit message format is required for automated changelog generation. Examples:\n\n`) +
+            `  ${chalk.white(chalk.bgRed(' ERROR: '))} ${chalk.yellowBright(`${message}`)} ${chalk.red(
+                `invalid commit message format.`
+            )}\n\n` +
+                chalk(
+                    `Proper commit message format is required for automated changelog generation. \n\nExamples:\n\n`
+                ) +
                 `    ${chalk.green(`feat(scope): add 'comments' option`)}\n` +
                 `    ${chalk.green(`fix(scope): handle events on blur (close #28)`)}\n\n` +
-                chalk.red(
-                    `We refer to the vue3 scheme.\n` +
-                        `See https://github.com/vuejs/core/blob/main/.github/commit-convention.md for more details.\n`
-                )
+                chalk.gray(`We refer to the vue3 scheme for more details: \n`) +
+                chalk.gray.underline(`https://github.com/vuejs/core/blob/main/.github/commit-convention.md \n`)
         );
         process.exit(1);
+    } else {
+        return true;
     }
 }
 
