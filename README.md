@@ -1,7 +1,10 @@
-# easy-commit-util
-<span> English | <a href= "./README.zh.md"> Chinese </a></span>
+<h1 style="text-align: center;">easy-commit-util</h1>
+<p style="text-align: center;"><span> English | <a href= "./README.zh.md"> 中文 </a></span></p>
+<p style="text-align: center;">easy-commit-util is a command-line tool written in Node.js that simplifies and automates your git submission process.</p>
 
--   easy-commit-util is a command-line tool written in Node.js that simplifies and automates your git submission process.
+<p style="display: flex; justify-content: center; align-item: center;">
+<img src="./screenzy.png" width="70%"/>
+</p>
 
 ## Function
 

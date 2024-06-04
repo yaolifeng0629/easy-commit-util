@@ -1,6 +1,10 @@
-# easy-commit-util
+<h1 style="text-align: center;">easy-commit-util</h1>
+<p style="text-align: center;"><span> English | <a href= "./README.zh.md"> 中文 </a></span></p>
+<p style="text-align: center;">easy-commit-util 是一个使用 Node.js 编写的命令行工具，它可以简化和自动化你的 git 提交过程。</p>
 
--   easy-commit-util 是一个使用 Node.js 编写的命令行工具，它可以简化和自动化你的 git 提交过程。
+<p style="display: flex; justify-content: center; align-item: center;">
+<img src="./screenzy.png" width="70%"/>
+</p>
 
 ## 功能
 
