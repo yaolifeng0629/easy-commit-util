@@ -2,7 +2,7 @@
 <p style="text-align: center;"><span> English | <a href= "./README.zh.md"> 中文 </a></span></p>
 <p style="text-align: center;">easy-commit-util is a command-line tool written in Node.js that simplifies and automates your git submission process.</p>
 
-<p style="display: flex; justify-content: center; align-item: center;">
+<p style="display: flex; justify-content: center; align-items: center;">
 <img src="./screenzy.png" width="70%"/>
 </p>
 
