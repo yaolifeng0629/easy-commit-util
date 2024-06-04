@@ -71,7 +71,7 @@ function displayGuide() {
         `,
         {
             width: 60,
-            height: 15,
+            height: 20,
             padding: 10,
             title: 'easy-commit-util 🚀 ',
             titleAlignment: 'center',
