@@ -6,6 +6,10 @@
 <img src="./screenzy.png" width="70%"/>
 </p>
 
+>
+>   `If you don't want to force verification of submission format, please install version@1.1.6, otherwise, install version@1.1.6 or above`
+>
+
 ## Function
 
 -   Automatically detect if the current directory is a git repository
