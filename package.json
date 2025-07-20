@@ -2,7 +2,11 @@
     "name": "easy-commit-util",
     "version": "2.0.0",
     "description": "easy-commit-util is a command-line tool written in TypeScript that simplifies and automates your git submission process.",
-    "bin": "./dist/cli.js",
+    "bin": {
+        "easy-commit": "./dist/cli.js",
+        "ecg": "./dist/cli.js",
+        "eg": "./dist/cli.js"
+    },
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "scripts": {

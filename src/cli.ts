@@ -31,7 +31,7 @@ program
       }
 
       const config = ConfigManager.load();
-      
+
       // Override config with CLI options
       if (options.push === false) {
         config.pushAfterCommit = false;
@@ -117,7 +117,7 @@ program
   .action(async () => {
     const cli = new CLI();
     const commitService = new CommitService(ConfigManager.load());
-    
+
     const { status } = await commitService.checkPreconditions();
     await cli.displayStatus(status);
   });
@@ -146,11 +146,11 @@ program
   .argument('<message>', 'Commit message to validate')
   .action((message) => {
     const validation = CommitValidator.validate(message);
-    
+
     if (validation.isValid) {
-      console.log(chalk.green('✅ Valid commit message'));
+      console.log(chalk.green('✅  Valid commit message'));
     } else {
-      console.log(chalk.red('❌ Invalid commit message:'));
+      console.log(chalk.red('❌  Invalid commit message:'));
       validation.errors.forEach((error, index) => {
         console.log(`   ${index + 1}. ${error}`);
       });

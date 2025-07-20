@@ -15,9 +15,9 @@ export class CLI {
    */
   async displayWelcome(): Promise<void> {
     console.clear();
-    
+
     const title = boxen(
-      chalk.cyan.bold('🚀 Easy Commit Util') + '\n' +
+      chalk.cyan.bold('🚀  Easy Commit Util') + '\n' + '\n' +
       chalk.gray('Simplify your git workflow with conventional commits'),
       {
         padding: 1,
@@ -26,18 +26,18 @@ export class CLI {
         borderColor: 'cyan',
       }
     );
-    
+
     console.log(title);
-    
+
     // Display commit types in a formatted table
     const typeTable = Object.entries(COMMIT_TYPE_DESCRIPTIONS)
-      .map(([type, description]) => 
+      .map(([type, description]) =>
         `${chalk.green(type.padEnd(10))} ${chalk.gray(description)}`
       )
       .join('\n');
-    
+
     const guide = boxen(
-      'Commit Types:\n' + typeTable + 
+      'Commit Types:\n' + typeTable +
       '\n\n' + chalk.yellow('Format: type(scope): description'),
       {
         padding: 1,
@@ -46,7 +46,7 @@ export class CLI {
         borderColor: 'yellow',
       }
     );
-    
+
     console.log(guide);
   }
 
@@ -55,27 +55,27 @@ export class CLI {
    */
   async displayStatus(status: GitStatus): Promise<void> {
     if (!status.isRepo) {
-      console.log(chalk.red('❌ Not in a git repository'));
+      console.log(chalk.red('❌  Not in a git repository'));
       return;
     }
 
-    console.log(chalk.blue('📁 Repository Status:'));
+    console.log(chalk.blue('📁  Repository Status:'));
     console.log(`   Branch: ${chalk.cyan(status.currentBranch)}`);
-    
+
     if (status.hasChanges) {
-      console.log(chalk.green(`   ✅ ${status.modifiedFiles.length} file(s) with changes`));
-      
+      console.log(chalk.green(`   ✅  ${status.modifiedFiles.length} file(s) with changes`));
+
       if (status.stagedFiles.length > 0) {
-        console.log(chalk.yellow(`   📋 ${status.stagedFiles.length} staged file(s)`));
+        console.log(chalk.yellow(`   📋  ${status.stagedFiles.length} staged file(s)`));
       }
-      
+
       if (status.unstagedFiles.length > 0) {
-        console.log(chalk.blue(`   📝 ${status.unstagedFiles.length} unstaged file(s)`));
+        console.log(chalk.blue(`   📝  ${status.unstagedFiles.length} unstaged file(s)`));
       }
     } else {
       console.log(chalk.yellow('⚠️  No changes detected'));
     }
-    
+
     console.log(); // Empty line
   }
 
@@ -163,12 +163,12 @@ export class CLI {
           if (!input.trim()) {
             return 'Commit message cannot be empty';
           }
-          
+
           const validation = CommitValidator.validate(input);
           if (!validation.isValid) {
             return validation.errors.join('; ');
           }
-          
+
           return true;
         },
       },
@@ -181,13 +181,13 @@ export class CLI {
    * Display validation errors
    */
   displayValidationErrors(validation: ValidationResult): void {
-    console.log(chalk.red('\n❌ Validation Errors:'));
+    console.log(chalk.red('\n❌  Validation Errors:'));
     validation.errors.forEach((error, index) => {
       console.log(`   ${index + 1}. ${error}`);
     });
     console.log();
-    
-    console.log(chalk.blue('💡 Format help:'));
+
+    console.log(chalk.blue('💡  Format help:'));
     console.log(CommitValidator.getFormatHelp());
   }
 
@@ -215,10 +215,10 @@ export class CLI {
    */
   displaySummary(success: boolean, details: string[]): void {
     if (success) {
-      console.log(chalk.green('\n✅ Commit completed successfully!'));
+      console.log(chalk.green('\n✅  Commit completed successfully!'));
       details.forEach(detail => console.log(`   ${chalk.gray('•')} ${detail}`));
     } else {
-      console.log(chalk.red('\n❌ Operation failed'));
+      console.log(chalk.red('\n❌  Operation failed'));
       details.forEach(detail => console.log(`   ${chalk.gray('•')} ${detail}`));
     }
   }
@@ -242,11 +242,11 @@ export class CLI {
    * Display error with suggestions
    */
   displayError(error: Error, suggestion?: string): void {
-    console.log(chalk.red('\n❌ Error:'));
+    console.log(chalk.red('\n❌  Error:'));
     console.log(`   ${error.message}`);
-    
+
     if (suggestion) {
-      console.log(chalk.yellow(`\n💡 Suggestion: ${suggestion}`));
+      console.log(chalk.yellow(`\n💡  Suggestion: ${suggestion}`));
     }
   }
 }

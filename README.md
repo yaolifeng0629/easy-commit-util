@@ -1,8 +1,15 @@
-# Easy Commit Util
+<h1 style="text-align: center;">easy-commit-util</h1>
+<p style="text-align: center;"><span> English | <a href= "./README.zh.md"> 中文 </a></span></p>
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://typescriptlang.org)
-[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D16-green.svg)](https://nodejs.org)
-[![License](https://img.shields.io/badge/license-ISC-blue.svg)](LICENSE)
+<p align="center">
+  <a href="https://typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.0-blue.svg" alt="TypeScript"></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-%3E%3D16-green.svg" alt="Node.js"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-ISC-blue.svg" alt="License"></a>
+</p>
+
+<p style="display: flex; justify-content: center; align-item: center;">
+<img src="./screen.png" width="70%"/>
+</p>
 
 > **Version 2.0** - Complete TypeScript rewrite with improved architecture and user experience
 
@@ -128,53 +135,8 @@ npm run dev          # Watch mode compilation
 npm run build        # Build TypeScript
 npm run lint         # ESLint
 npm run format       # Prettier
-npm run test         # Run tests
 npm start           # Run CLI
 ```
-
-### Project Structure
-```
-src/
-├── cli.ts          # CLI entry point
-├── index.ts        # Main exports
-├── types/          # TypeScript type definitions
-├── services/       # Core business logic
-│   ├── git.ts      # Git operations
-│   ├── validator.ts # Commit validation
-│   └── commit.ts   # Commit workflow
-├── ui/             # CLI interface
-│   └── cli.ts      # User interface
-├── config/         # Configuration management
-├── utils/          # Utility functions
-└── tests/          # Unit tests
-```
-
-## 🧪 Testing
-
-```bash
-npm test              # Run all tests
-npm run test:watch    # Watch mode testing
-npm run test:coverage # Coverage report
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how to get started:
-
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Make your changes** following our coding standards
-4. **Add tests** for new functionality
-5. **Ensure tests pass**: `npm test`
-6. **Commit conventionally**: `feat: add amazing feature`
-7. **Push and create a Pull Request**
-
-### Development Guidelines
-- Use TypeScript for all new code
-- Follow conventional commits for your PR title
-- Add comprehensive error handling
-- Include unit tests for new features
-- Update documentation as needed
 
 ## 📄 License
 
@@ -188,4 +150,4 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ by the easy-commit-util team**
+**Made with ❤️ by the <a href="https://yaolifeng.com">Immerse</a>**
