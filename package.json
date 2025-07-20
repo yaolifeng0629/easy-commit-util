@@ -1,12 +1,17 @@
 {
     "name": "easy-commit-util",
-    "version": "1.1.81",
-    "description": "easy-commit-util is a command-line tool written in Node.js that simplifies and automates your git submission process.",
-    "bin": "./index.js",
-    "main": "index.js",
+    "version": "2.0.0",
+    "description": "easy-commit-util is a command-line tool written in TypeScript that simplifies and automates your git submission process.",
+    "bin": "./dist/cli.js",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "scripts": {
-        "start": "node index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "start": "node dist/cli.js",
+        "prepublishOnly": "npm run build",
+        "lint": "eslint src/**/*.ts",
+        "format": "prettier --write src/**/*.ts"
     },
     "keywords": [
         "github",
@@ -14,7 +19,9 @@
         "code",
         "push",
         "commit",
-        "gitee"
+        "gitee",
+        "typescript",
+        "cli"
     ],
     "author": "Ims",
     "license": "ISC",
@@ -23,13 +30,18 @@
         "boxen": "^7.1.1",
         "chalk": "^5.3.0",
         "cli-table3": "^0.6.3",
-        "util": "^0.12.5"
+        "commander": "^11.1.0",
+        "inquirer": "^9.2.12",
+        "ora": "^7.0.1"
     },
     "devDependencies": {
-        "@babel/cli": "^7.23.9",
-        "@babel/core": "^7.24.0",
-        "@babel/preset-env": "^7.24.0",
-        "eslint": "^8.19.0"
+        "@types/inquirer": "^9.0.7",
+        "@types/node": "^20.9.0",
+        "@typescript-eslint/eslint-plugin": "^6.12.0",
+        "@typescript-eslint/parser": "^6.12.0",
+        "eslint": "^8.54.0",
+        "prettier": "^3.1.0",
+        "typescript": "^5.2.2"
     },
     "repository": {
         "type": "git",
@@ -40,6 +52,9 @@
     },
     "homepage": "https://github.com/yaolifeng0629/simple_push#readme",
     "engines": {
-        "node": ">=14.0.0"
-    }
+        "node": ">=16.0.0"
+    },
+    "files": [
+        "dist/**/*"
+    ]
 }
