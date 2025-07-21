@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(rm:*)",
+      "Bash(pnpm dev)",
+      "Bash(pnpm build)",
+      "Bash(timeout:*)",
+      "Bash(npm run build)",
+      "Bash(npm link)",
+      "Bash(ecg:*)",
+      "Bash(easy-commit:*)",
+      "Bash(npm install)",
+      "Bash(pnpm install)",
+      "Bash(pnpm run build)",
+      "Bash(chmod:*)",
+      "Bash(node:*)",
+      "Bash(ls:*)"
+    ],
+    "deny": []
+  }
+}
