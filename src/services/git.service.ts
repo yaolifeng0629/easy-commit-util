@@ -114,13 +114,13 @@ export class GitService {
   push(remote: string = 'origin', branch?: string): void {
     try {
       const targetBranch = branch || this.getCurrentBranch();
-      
+
       if (this.remoteBranchExists(targetBranch, remote)) {
         // Remote branch exists, push normally
         execSync(`git push ${remote} ${targetBranch}`, { stdio: 'inherit' });
       } else {
         // Remote branch doesn't exist, set upstream
-        console.log(`🌱 Creating new remote branch ${targetBranch}...`);
+        console.log(`🌱  Creating new remote branch ${targetBranch}...`);
         execSync(`git push -u ${remote} ${targetBranch}`, { stdio: 'inherit' });
       }
     } catch (error) {
@@ -145,12 +145,12 @@ export class GitService {
    */
   async commitAndPush(message: string, config: GitConfig = { remoteName: 'origin', branchName: '' }): Promise<void> {
     const targetBranch = config.branchName || this.getCurrentBranch();
-    
+
     this.stageAll();
     this.commit(message);
-    
+
     if (!this.remoteBranchExists(targetBranch, config.remoteName)) {
-      console.log(`📤 Publishing new branch ${targetBranch} to ${config.remoteName}...`);
+      console.log(`📤  Publishing new branch ${targetBranch} to ${config.remoteName}...`);
       this.setUpstreamBranch(config.remoteName, targetBranch);
     } else {
       this.push(config.remoteName, targetBranch);

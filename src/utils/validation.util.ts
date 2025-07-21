@@ -5,22 +5,22 @@ export class ValidationUtil {
     /^(revert: )?(feat|fix|docs|dx|style|refactor|perf|test|workflow|build|ci|chore|types|wip|release)(\(.+\))?: .{1,50}/;
 
   static readonly COMMIT_TYPES: CommitType[] = [
-    { type: 'feat', description: '新功能', emoji: '✨' },
-    { type: 'fix', description: '修复 bug', emoji: '🐛' },
-    { type: 'docs', description: '文档修改', emoji: '📚' },
-    { type: 'release', description: '版本发布记录', emoji: '🚀' },
-    { type: 'style', description: '样式修改(ui 校验)', emoji: '💄' },
+    { type: 'feat', description: '新功能', emoji: '✨ ' },
+    { type: 'fix', description: '修复 bug', emoji: '🐛 ' },
+    { type: 'docs', description: '文档修改', emoji: '📚 ' },
+    { type: 'release', description: '版本发布记录', emoji: '🚀 ' },
+    { type: 'style', description: '样式修改(ui 校验)', emoji: '💄 ' },
     { type: 'workflow', description: '工作流相关修改', emoji: '⚙️ ' },
     { type: 'types', description: '项目数据类型的修改', emoji: '🏷️ ' },
-    { type: 'ci', description: '自动化流程配置或脚本修改', emoji: '🔧' },
-    { type: 'revert', description: '回退某个 commit 提交', emoji: '⏪' },
-    { type: 'wip', description: '备份当前进度（表示还未完成）', emoji: '🚧' },
-    { type: 'build', description: '构建系统或外部依赖项的更改', emoji: '📦' },
-    { type: 'perf', description: '优化相关，比如提升性能、体验', emoji: '⚡' },
-    { type: 'dx', description: '开发体验相关修改，例如构建流程', emoji: '💻' },
-    { type: 'chore', description: '其他修改，比如构建流程、依赖管理', emoji: '🧹' },
+    { type: 'ci', description: '自动化流程配置或脚本修改', emoji: '🔧 ' },
+    { type: 'revert', description: '回退某个 commit 提交', emoji: '⏪ ' },
+    { type: 'wip', description: '备份当前进度（表示还未完成）', emoji: '🚧 ' },
+    { type: 'build', description: '构建系统或外部依赖项的更改', emoji: '📦 ' },
+    { type: 'perf', description: '优化相关，比如提升性能、体验', emoji: '⚡ ' },
+    { type: 'dx', description: '开发体验相关修改，例如构建流程', emoji: '💻 ' },
+    { type: 'chore', description: '其他修改，比如构建流程、依赖管理', emoji: '🧹 ' },
     { type: 'refactor', description: '重构代码(无功能、无 bug 修复)', emoji: '♻️ ' },
-    { type: 'test', description: '增加测试，包括单元测试、集成测试等', emoji: '🧪' }
+    { type: 'test', description: '增加测试，包括单元测试、集成测试等', emoji: '🧪 ' }
   ];
 
   /**
