@@ -121,14 +121,14 @@ export class CLIInterface {
    */
   displayFileList(files: string[]): void {
     if (files.length === 0) return;
-    
+
     console.log(chalk.gray('\nChanged files:'));
     files.forEach((file, index) => {
       const status = file.substring(0, 2).trim();
       const filename = file.substring(3);
       let statusColor = chalk.gray;
       let statusText = status;
-      
+
       switch (status) {
         case 'M': statusColor = chalk.yellow; statusText = 'modified'; break;
         case 'A': statusColor = chalk.green; statusText = 'added'; break;
@@ -138,7 +138,7 @@ export class CLIInterface {
         case '??': statusColor = chalk.gray; statusText = 'untracked'; break;
         default: statusText = status;
       }
-      
+
       console.log(`  ${chalk.gray(`${index + 1}.`)} ${statusColor(statusText)} ${filename}`);
     });
     console.log();
@@ -183,7 +183,7 @@ export class CLIInterface {
    * Display progress indicator
    */
   displayProgress(message: string): void {
-    process.stdout.write(chalk.blue(`⏳ ${message}...`));
+    process.stdout.write(chalk.blue(`⏳ ${message}...\n`));
   }
 
   /**

@@ -40,7 +40,7 @@ class EasyCommitCLI {
     // Get git status
     const gitStatus = this.gitService.getGitStatus();
     this.cliInterface.displayGitStatus(gitStatus.hasChanges, gitStatus.modifiedFiles.length);
-    
+
     if (gitStatus.hasChanges) {
       this.cliInterface.displayFileList(gitStatus.modifiedFiles);
     }
@@ -73,23 +73,23 @@ class EasyCommitCLI {
 
     // Execute git workflow
     try {
-      this.cliInterface.displayProgress('Staging changes\n');
+      this.cliInterface.displayProgress('Staging changes');
       this.gitService.stageAll();
       this.cliInterface.completeProgress('Changes staged successfully\n');
 
-      this.cliInterface.displayProgress('Committing changes\n');
+      this.cliInterface.displayProgress('Committing changes');
       this.gitService.commit(commitMessage);
       this.cliInterface.completeProgress('Changes committed successfully\n');
 
       const currentBranch = this.gitService.getCurrentBranch();
       const remoteExists = this.gitService.remoteBranchExists(currentBranch);
-      
+
       if (!remoteExists) {
         this.cliInterface.displayInfo(`🌱 Publishing new branch ${currentBranch} to remote...`);
       } else {
         this.cliInterface.displayProgress('Pushing changes to remote');
       }
-      
+
       this.gitService.push();
       this.cliInterface.completeProgress('Changes pushed successfully\n');
 
