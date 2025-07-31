@@ -2,15 +2,10 @@
     "name": "easy-commit-util",
     "version": "1.1.81",
     "description": "easy-commit-util is a command-line tool written in Node.js that simplifies and automates your git submission process.",
-    "bin": "./dist/index.js",
-    "main": "dist/index.js",
+    "bin": "./index.js",
+    "main": "index.js",
     "scripts": {
-        "start": "node dist/index.js",
-        "dev": "tsx src/index.ts",
-        "build": "tsc",
-        "build:watch": "tsc --watch",
-        "clean": "node -e \"require('fs').rmSync('dist', {recursive: true, force: true})\"",
-        "prebuild": "npm run clean",
+        "start": "node index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
@@ -34,10 +29,7 @@
         "@babel/cli": "^7.23.9",
         "@babel/core": "^7.24.0",
         "@babel/preset-env": "^7.24.0",
-        "@types/node": "^20.0.0",
-        "eslint": "^8.19.0",
-        "tsx": "^4.0.0",
-        "typescript": "^5.0.0"
+        "eslint": "^8.19.0"
     },
     "repository": {
         "type": "git",
